@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Counter</title>
+  <style>
+    body { font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; }
+    .card { padding: 24px; border: 1px solid #ddd; border-radius: 12px; text-align: center; width: 280px; }
+    .num { font-size: 56px; font-weight: 700; margin: 12px 0 18px; }
+    button { font-size: 18px; padding: 10px 16px; border-radius: 10px; border: 1px solid #ccc; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="num" class="num">2995</div>
+    <button id="btn">+1</button>
+  </div>
+
+  <script>
+    const START = 2995;
+
+    let count = Number(localStorage.getItem("counter")) || START;
+    const num = document.getElementById("num");
+    num.textContent = count;
+
+    document.getElementById("btn").addEventListener("click", () => {
+      count++;
+      num.textContent = count;
+      localStorage.setItem("counter", count);
+    });
+  </script>
+</body>
+</html>
